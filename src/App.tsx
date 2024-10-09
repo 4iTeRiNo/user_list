@@ -1,14 +1,22 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { Home } from "./components/routers/Home";
+import { Layout } from "./components/routes/Home";
+import { UsersList } from "./components/UserList";
+import ErrorPage from "./components/routes/error-page";
+import { UserInfo } from "./components/routes/UserInfo";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Home />,
-    loader: () => ({ message: "Hello Data Router!" }),
+    element: <Layout />,
+    errorElement: <ErrorPage />,
+    children: [
+      { path: "/", index: true, element: <UsersList /> },
+      { path: "users/user/:id", element: <UserInfo /> },
+    ],
   },
 ]);
+
 function App() {
   return (
     <RouterProvider

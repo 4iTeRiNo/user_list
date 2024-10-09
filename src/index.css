@@ -2,18 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+body {
+  --background-accent: linear-gradient(
+    to left top,
+    #070e18,
+    #00364a,
+    #006162,
+    #008c51,
+    #81af19
+  );
+}
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@layer components {
+  .button {
+    @apply p-2 bg-blue-700 rounded-lg w-fit hover:bg-blue-600;
+  }
 }
 

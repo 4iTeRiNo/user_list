@@ -8,7 +8,7 @@ export const Layout = () => {
     fetchUsers();
   }, [fetchUsers]);
   return (
-    <div className="flex flex-row gap-5 bg-accent">
+    <div className="flex flex-row gap-5 bg-sky-800 min-h-screen">
       <NavigationLinks />
       <Outlet />
     </div>

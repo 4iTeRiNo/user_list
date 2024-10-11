@@ -4,7 +4,7 @@ import { baseUrl } from "../../shared/constant";
 
 export type UsersState = {
   DataUsers: UserList;
-  User: User;
+  User: User | null;
   isChange: boolean;
   loading: boolean;
   error: unknown;
@@ -15,21 +15,13 @@ export type UsersActions = {
   sortByCompany: () => void;
   fetchUsers: () => Promise<void>;
   fetchUser: (id: string) => Promise<void>;
+  changeIsChange: () => void;
 };
 
 export type UsersStore = UsersActions & UsersState;
-
-export const defaultInitState: UsersState = {
-  DataUsers: [],
-  User: {} as User,
-  isChange: false,
-  loading: false,
-  error: null,
-};
-
 const createUserStore = create<UsersStore>((set) => ({
   DataUsers: [],
-  User: {} as User,
+  User: null,
   error: null,
   isChange: false,
   loading: false,
@@ -45,6 +37,7 @@ const createUserStore = create<UsersStore>((set) => ({
         a.company.name.localeCompare(b.company.name)
       ),
     })),
+  changeIsChange: () => set((state) => ({ isChange: !state.isChange })),
   fetchUsers: async () => {
     try {
       set(() => ({ loading: true }));
@@ -76,7 +69,7 @@ const createUserStore = create<UsersStore>((set) => ({
       const response = await fetch(`${baseUrl}/users/${id}`);
       if (!response.ok) throw response;
       const data = await response.json();
-      set({ User: data, loading: false, error: null });
+      set({ User: data, error: null });
     } catch (error) {
       set({ error });
     } finally {

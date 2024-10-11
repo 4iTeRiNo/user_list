@@ -5,7 +5,7 @@ export const NavigationLinks = () => {
   const { sortByCity, sortByCompany } = useStore();
 
   return (
-    <header className="flex flex-col gap-5 w-1/5 items-start p-4 bg-second">
+    <header className="flex flex-col gap-5 w-1/5 items-start p-4 bg-sky-950">
       <h2 className="text-xl font-bold underline">Сортировка</h2>
       <button onClick={sortByCity} className="button">
         По городу

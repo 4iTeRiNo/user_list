@@ -4,7 +4,10 @@
 
 @layer components {
   .button {
-    @apply p-2 bg-blue-700 rounded-lg w-fit hover:bg-blue-600;
+    @apply p-2 bg-blue-700 text-lg text-nowrap rounded-lg w-fit hover:bg-blue-600 max-tablet:text-sm;
+  }
+  .placeholder {
+    @apply font-bold text-base max-tablet:text-sm text-nowrap;
   }
 }
 

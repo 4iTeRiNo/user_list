@@ -8,7 +8,7 @@ export const Layout = () => {
     fetchUsers();
   }, [fetchUsers]);
   return (
-    <div className="flex flex-row gap-5 bg-sky-800 min-h-screen">
+    <div className="flex flex-row gap-5 bg-sky-800 min-h-screen max-tablet:gap-1">
       <NavigationLinks />
       <Outlet />
     </div>

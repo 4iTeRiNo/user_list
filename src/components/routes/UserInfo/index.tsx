@@ -17,9 +17,9 @@ export const UserInfo = () => {
       {loading === true ? (
         <div>Loading...</div>
       ) : (
-        <section className="flex flex-col w-1/2 pt-5  gap-y-5">
-          <div className="flex justify-between">
-            <h1 className="text-xl font-bold underline">
+        <section className="flex flex-col w-full px-2 pt-5 gap-y-5 max-tablet:justify-center max-tablet:w-full">
+          <div className="flex justify-between gap-2 flex-wrap max-tablet:flex-col">
+            <h1 className="text-xl font-bold underline text-nowrap max-tablet:text-sm">
               Информация о пользователе
             </h1>
             <button className="button " onClick={changeIsChange}>

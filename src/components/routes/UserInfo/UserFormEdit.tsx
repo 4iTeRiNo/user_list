@@ -58,9 +58,9 @@ export default function UserFormEdit() {
           <label
             key={form.id}
             htmlFor={form.register_name}
-            className="p-3 appearance-auto border-spacing-2 border-black"
+            className="p-3 appearance-auto border-spacing-2"
           >
-            <span className="font-bold text-base">{form.placeholder}</span>
+            <span className="placeholder">{form.placeholder}</span>
 
             <input
               {...register(form.register_name as keyof UserInfo, {})}
@@ -79,7 +79,7 @@ export default function UserFormEdit() {
                 } ${
                 errors[form.register_name as keyof UserInfo] &&
                 "border-red-600 border-2"
-              }`}
+              } max-tablet:text-base`}
             />
             {errors[form.register_name as keyof UserInfo] && (
               <span className="text-[12px] text-errorMessage">
@@ -97,7 +97,7 @@ export default function UserFormEdit() {
             htmlFor={form.register_name}
             className="p-3 appearance-auto border-spacing-2 border-black"
           >
-            <span className="font-bold text-base">{form.placeholder}</span>
+            <span className="placeholder">{form.placeholder}</span>
 
             <input
               {...register(form.register_name as keyof UserAddress, {})}
@@ -126,8 +126,8 @@ export default function UserFormEdit() {
           </label>
         );
       })}
-      <label htmlFor="summary" className="flex flex-col text-lg w-1/2 gap-2">
-        <span className="font-bold text-base">Расскажите о себе</span>
+      <label htmlFor="summary" className="flex flex-col text-lg gap-y-2 pb-4">
+        <span className="placeholder">Расскажите о себе</span>
         <Controller
           name="summary"
           control={control}

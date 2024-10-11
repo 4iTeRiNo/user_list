@@ -1,4 +1,5 @@
 import { FormProps, FormRegisterName } from "../types";
+import { validateTextPattern } from "../utils";
 
 export const baseUrl = "https://jsonplaceholder.typicode.com";
 
@@ -6,7 +7,7 @@ export const FormsUserInfo: FormProps[] = [
   {
     id: 1,
     register_name: FormRegisterName.name,
-    validate: (str: string) => str.length > 0,
+    validate: validateTextPattern,
     message: "Name is required",
     type: "text",
     placeholder: "Имя",
@@ -14,7 +15,7 @@ export const FormsUserInfo: FormProps[] = [
   {
     id: 2,
     register_name: FormRegisterName.username,
-    validate: (str: string) => str.length > 0,
+    validate: validateTextPattern,
     message: "Username is required",
     type: "text",
     placeholder: "Имя пользователя",
@@ -22,9 +23,9 @@ export const FormsUserInfo: FormProps[] = [
   {
     id: 3,
     register_name: FormRegisterName.email,
-    validate: (str: string) => str.length > 0,
+    validate: validateTextPattern,
     message: "Email is required",
-    type: "text",
+    type: "email",
     placeholder: "Email",
   },
 
@@ -50,7 +51,7 @@ export const FormsUserAddress: FormProps[] = [
   {
     id: 1,
     register_name: FormRegisterName.street,
-    validate: (str: string) => str.length > 0,
+    validate: validateTextPattern,
     message: "Street is required",
     type: "text",
     placeholder: "Улица",
@@ -58,7 +59,7 @@ export const FormsUserAddress: FormProps[] = [
   {
     id: 2,
     register_name: FormRegisterName.city,
-    validate: (str: string) => str.length > 0,
+    validate: validateTextPattern,
     message: "City is required",
     type: "text",
     placeholder: "Город",

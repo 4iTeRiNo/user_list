@@ -63,8 +63,10 @@ export default function UserFormEdit() {
             <span className="placeholder">{form.placeholder}</span>
 
             <input
-              {...register(form.register_name as keyof UserInfo, {})}
-              required
+              {...register(form.register_name as keyof UserInfo, {
+                required: form.message,
+                validate: form.validate,
+              })}
               id={form.register_name}
               autoComplete="off"
               disabled={isChange}
@@ -100,7 +102,10 @@ export default function UserFormEdit() {
             <span className="placeholder">{form.placeholder}</span>
 
             <input
-              {...register(form.register_name as keyof UserAddress, {})}
+              {...register(form.register_name as keyof UserAddress, {
+                required: form.message,
+                validate: form.validate,
+              })}
               id={form.register_name}
               autoComplete="off"
               disabled={isChange}

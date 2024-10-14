@@ -28,7 +28,10 @@ export default function UserFormEdit() {
     setIsShowLoader(true);
 
     formData.append("access_key", "b301e687-af2a-43b5-8bea-5ca49d0bc77f");
-    Object.entries(data).forEach(([key, value]) => formData.append(key, value));
+    Object.entries(data).forEach(([key, value]) => {
+      formData.append(key, value);
+    });
+    console.log(data);
 
     const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
